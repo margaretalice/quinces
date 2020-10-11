@@ -1,5 +1,3 @@
-
-  
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@700&display=swap');
 
 html {
@@ -79,6 +77,10 @@ h3 {
 
 .favouriteHeading {
     padding-top: 50px;
+}
+#intropic {
+    text-align:center;
+    padding-top:10px;
 }
 
 /*-- NavBar --*/
