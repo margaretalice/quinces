@@ -6,8 +6,8 @@ import bcrypt
 
 app = Flask(__name__)
 
-app.config["MONGO_DBNAME"] = 'gilded_gingerbread'
-app.config["MONGO_URI"] = 'mongodb+srv://margaret:alicia@myfirstcluster-yzvdc.mongodb.net/gilded_gingerbread?retryWrites=true&w=majority'
+app.config["MONGO_DBNAME"] ='gilded_gingerbread'
+app.config['MONGO_URI'] = 'mongodb://margaret:alicia@myfirstcluster-shard-00-00-iff8d.mongodb.net:27017,myfirstcluster-shard-00-01-iff8d.mongodb.net:27017,myfirstcluster-shard-00-02-iff8d.mongodb.net:27017/i_brary?ssl=true&replicaSet=myFirstCluster-shard-0&authSource=admin&retryWrites=true&w=majority'
 
 
 mongo = PyMongo(app)
