@@ -6,9 +6,8 @@ import bcrypt
 
 app = Flask(__name__)
 
-app.config["MONGO_DBNAME"] ='gilded_gingerbread'
-app.config['MONGO_URI'] = 'mongodb://margaret:alicia@myfirstcluster-shard-00-00-iff8d.mongodb.net:27017,myfirstcluster-shard-00-01-iff8d.mongodb.net:27017,myfirstcluster-shard-00-02-iff8d.mongodb.net:27017/i_brary?ssl=true&replicaSet=myFirstCluster-shard-0&authSource=admin&retryWrites=true&w=majority'
-
+app.config["MONGO_DBNAME"] = 'gilded_gingerbread'
+app.config["MONGO_URI"] = 'mongodb://Alice:Violette58@myfirstcluster-shard-00-00.yzvdc.mongodb.net:27017,myfirstcluster-shard-00-01.yzvdc.mongodb.net:27017,myfirstcluster-shard-00-02.yzvdc.mongodb.net:27017/gilded_gingerbread?ssl=true&replicaSet=myFirstCluster-shard-0&authSource=admin&retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
 
@@ -63,12 +62,10 @@ def register():
         return render_template('register.html', message=invalid_user)
     
 
-
 @app.route('/show_books', methods=["POST", "GET"])
 def show_books():
     username = session['user_username']
     return render_template('books.html', books=mongo.db.books.find({"added_by": username})) # Only show books that was been uploaded by the username logged in
-
 
 
 @app.route('/add_book')
@@ -116,6 +113,7 @@ def delete_book(book_id):
 def logout():
     session.clear()
     return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
